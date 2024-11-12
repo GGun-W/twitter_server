@@ -5,7 +5,7 @@ let tweets = [
         username:'apple',
         text:'안녕하세요',
         createdAt: Date.now().toString(),
-        url:'https://img.freepik.com/premium-photo/young-asian-man-her-clean-face-with-fresh-healthy-skin-ai-generated_145713-6656.jpg'
+        url:'https://img.freepik.com/premium-photo/cute-puppy-sitting-grass-looking-camera-playful-generated-by-ai_188544-160685.jpg'
     },
     {
         id:'2',
@@ -13,7 +13,7 @@ let tweets = [
         username:'banana',
         text:'반갑습니다',
         createdAt: Date.now().toString(),
-        url:'https://img.freepik.com/premium-photo/young-asian-man-her-clean-face-with-fresh-healthy-skin-ai-generated_145713-6656.jpg'
+        url:'https://img.freepik.com/premium-photo/cute-puppy-sitting-grass-looking-camera-playful-generated-by-ai_188544-160685.jpg'
     },
     {
         id:'3',
@@ -21,7 +21,7 @@ let tweets = [
         username:'orange',
         text:'첫 트윗!',
         createdAt: Date.now().toString(),
-        url:'https://img.freepik.com/premium-photo/young-asian-man-her-clean-face-with-fresh-healthy-skin-ai-generated_145713-6656.jpg'
+        url:'https://img.freepik.com/premium-photo/cute-puppy-sitting-grass-looking-camera-playful-generated-by-ai_188544-160685.jpg'
     }
 ]
 

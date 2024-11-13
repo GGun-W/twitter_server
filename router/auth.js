@@ -2,21 +2,28 @@ import express from 'express'
 import * as authController from '../controller/auth.js'
 import { body } from 'express-validator'
 import { validate } from '../middleware/validator.js'
+import { isAuth } from '../middleware/auth.js'
 
 const router = express.Router()
 const validateLogin = [
-    body('username').trim().isLength({min:3}).withMessage('최소 3자 이상 입력').matches(/^[a-zA-z0-9]*$/).withMessage('특수문자 사용불가'), 
-    body('password').trim().isLength({min:4}).withMessage('최소 4자 이상 입력'), 
-    body('email').trim().isEmail().withMessage('이메일 형식 확인'),
+    body('username').trim().isLength({min:4}).withMessage('최소 4자 이상 입력').matches(/^[a-zA-z0-9]*$/).withMessage('특수문자 사용불가'), 
+    body('password').trim().isLength({min:8}).withMessage('최소 8자 이상 입력'), 
     validate
 ]
 
-router.post('/signup', validateLogin, authController.signup)
+const validateSingup = [
+    ...validateLogin,
+    body('name').trim().notEmpty().withMessage('name을 입력'),
+    body('email').trim().notEmpty().withMessage('이메일 형식 확인'),
+    validate
+]
 
-router.post('/login', authController.login)
+router.post('/signup', validateSingup, authController.signup)
 
-router.post('/me', authController.verify)
+router.post('/login', validateLogin, authController.login)
 
-// 로그인 유지
+router.get('/me', isAuth, authController.me)
+
+
 
 export default router

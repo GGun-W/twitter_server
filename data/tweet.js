@@ -1,27 +1,21 @@
 let tweets = [
     {
         id:'1',
-        name:'김사과',
-        username:'apple',
+        userid:'1',
         text:'안녕하세요',
         createdAt: Date.now().toString(),
-        url:'https://img.freepik.com/premium-photo/cute-puppy-sitting-grass-looking-camera-playful-generated-by-ai_188544-160685.jpg'
     },
     {
         id:'2',
-        name:'반하나',
-        username:'banana',
+        userid:'2',
         text:'반갑습니다',
         createdAt: Date.now().toString(),
-        url:'https://img.freepik.com/premium-photo/cute-puppy-sitting-grass-looking-camera-playful-generated-by-ai_188544-160685.jpg'
     },
     {
         id:'3',
-        name:'오렌지',
-        username:'orange',
+        userid:'1',
         text:'첫 트윗!',
         createdAt: Date.now().toString(),
-        url:'https://img.freepik.com/premium-photo/cute-puppy-sitting-grass-looking-camera-playful-generated-by-ai_188544-160685.jpg'
     }
 ]
 
@@ -66,3 +60,5 @@ export async function update(id, text){
 export async function remove(id){
     tweets = tweets.filter((tweet) => tweet.id !== id)
 }
+
+// 회원만 수정 가능

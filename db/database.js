@@ -1,25 +1,21 @@
-import mysql from 'mysql2'
+// import mysql from 'mysql2'
 import { config } from '../config.js'
+import SQ from 'sequelize'
+const {host,user,database,password} = config.db
+export const sequelize = new SQ.Sequelize(database,user,password,{
+    host,
+    dialect:'mysql',
+    logging: false, // 성능이 계속 떨어져서 false가편함
 
-const pool = mysql.createPool({
-    host: config.db.host,
-    user: config.db.user,
-    database: config.db.database,
-    password: config.db.password
 })
 
-// const query = `
-// SELECT users.id AS user_id, users.username, users.name, users.email, users.url, tweets.id AS tweet_id, tweets.text, tweets.createdAt
-// FROM users
-// INNER JOIN tweets ON users.id = tweets.userId;
-// `;
+// const pool = mysql.createPool({ //데이터 베이스 접속
+//     host: config.db.host,
+//     user: config.db.user,
+//     database: config.db.database,
+//     password: config.db.password
 
-// pool.query(query, (err, results) => {
-//     if(err){
-//     console.error('오류: ', err)
-//     return
-//     }
-//     console.log('성공', results)
 // })
 
-export const db = pool.promise()
+// export const db = pool.promise() // 프로미스로 가져옴
+

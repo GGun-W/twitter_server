@@ -4,7 +4,7 @@ import authRouter from './router/auth.js'
 import { config } from './config.js'
 import { initSocket } from './connection/socket.js'
 // import { db } from './db/database.js'
-import { sequelize } from './db/database.js'
+import { connectDB } from './db/database.js'
 import cors from 'cors'
 
 const app = express()
@@ -24,9 +24,9 @@ app.use((req, res, next) => {
     res.sendStatus(404)
 })
 
-sequelize.sync().then(() => {
-    const server = app.listen(config.host.port)
-    initSocket(server)
-})
-// DB연결 확인
-// db.getConnection().then((connection) => console.log(connection))
+// 클라우드하고 연결
+connectDB()
+    .then(() => {
+        const server = app.listen(config.host.port)
+        initSocket(server)
+    }).catch(console.error)

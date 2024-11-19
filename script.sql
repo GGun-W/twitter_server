@@ -33,4 +33,7 @@ FROM
 JOIN
 	tweets as tw ON u.id = tw.userId
 ORDER BY
-	tw.createdAt DESC
+	tw.createdAt DESC;
+    
+    
+ALTER TABLE tweets ADD COLUMN updatedAt DATETIME;
